@@ -1,0 +1,42 @@
+{
+    "name": "zhihe/money-system",
+    "description": "Advanced money system for content access control with view costs and tag-based restrictions",
+    "keywords": [
+        "flarum",
+        "money",
+        "economy",
+        "access control",
+        "pay to view"
+    ],
+    "type": "flarum-extension",
+    "license": "MIT",
+    "require": {
+        "flarum/core": "^1.8.0",
+        "antoinefr/flarum-ext-money": "^1.4.0"
+    },
+    "authors": [
+        {
+            "name": "Zhihe Team",
+            "email": "dev@zhihe.com",
+            "role": "Developer"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Zhihe\\MoneySystem\\": "src/"
+        }
+    },
+    "extra": {
+        "flarum-extension": {
+            "title": "Zhihe Money System",
+            "category": "feature",
+            "icon": {
+                "name": "fas fa-coins",
+                "color": "#fff",
+                "backgroundColor": "#f39c12"
+            }
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
