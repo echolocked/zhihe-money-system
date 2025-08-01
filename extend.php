@@ -11,56 +11,32 @@
 
 namespace Zhihe\MoneySystem;
 
-use Flarum\Extend;
-use Flarum\Discussion\Event\Viewing as DiscussionViewing;
-use Flarum\Post\Event\Viewing as PostViewing;
-use Flarum\User\User;
+use Flarum\Api\Controller\ShowDiscussionController;
 use Flarum\Discussion\Discussion;
-use Flarum\Post\Post;
-use Flarum\Tags\Tag;
+use Flarum\Extend;
 
 return [
     (new Extend\Frontend('forum'))
-        ->js(__DIR__ . '/js/dist/forum.js')
-        ->css(__DIR__ . '/less/forum.less'),
+        ->js(__DIR__ . '/js/dist/forum.js'),
 
     (new Extend\Frontend('admin'))
-        ->js(__DIR__ . '/js/dist/admin.js')
-        ->css(__DIR__ . '/less/admin.less'),
+        ->js(__DIR__ . '/js/dist/admin.js'),
 
     new Extend\Locales(__DIR__ . '/locale'),
 
-    // Event listeners for access control
+    // Settings
+    (new Extend\Settings())
+        ->serializeToForum('zhihe-money-system.payment_amount', 'zhihe-money-system.payment_amount', 'intval'),
+
+    // Event listeners
     (new Extend\Event())
-        ->listen(PostViewing::class, Listener\PostViewingListener::class)
-        ->listen(DiscussionViewing::class, Listener\DiscussionViewingListener::class),
+        ->listen(Event\DiscussionWasViewed::class, Listener\DeductMoneyOnView::class),
 
-    // Database models and relationships
-    (new Extend\Model(User::class))
-        ->hasMany('moneyTransactions', Models\MoneyTransaction::class, 'user_id'),
-
-    (new Extend\Model(Discussion::class))
-        ->hasMany('viewCosts', Models\ViewCost::class, 'discussion_id'),
-
-    (new Extend\Model(Post::class)) 
-        ->hasMany('viewCosts', Models\ViewCost::class, 'post_id'),
-
-    (new Extend\Model(Tag::class))
-        ->hasMany('moneyRequirements', Models\TagMoneyRequirement::class, 'tag_id'),
-
-    // API routes
-    (new Extend\Routes('api'))
-        ->post('/money-system/deduct-view-cost', 'money-system.deduct-view-cost', Api\Controller\DeductViewCostController::class)
-        ->get('/money-system/check-access', 'money-system.check-access', Api\Controller\CheckAccessController::class)
-        ->post('/money-system/tag-requirements', 'money-system.tag-requirements', Api\Controller\TagRequirementsController::class),
-
-    // Middleware for access control
-    (new Extend\Middleware('forum'))
-        ->add(Middleware\MoneyAccessMiddleware::class),
+    // Controller integration to emit events
+    (new Extend\ApiController(ShowDiscussionController::class))
+        ->prepareDataForSerialization(Listener\EmitDiscussionViewedEvent::class),
 
     // Policies for access control
     (new Extend\Policy())
-        ->modelPolicy(Discussion::class, Access\DiscussionPolicy::class)
-        ->modelPolicy(Post::class, Access\PostPolicy::class)
-        ->modelPolicy(Tag::class, Access\TagPolicy::class),
+        ->modelPolicy(Discussion::class, Access\DiscussionPolicy::class),
 ];

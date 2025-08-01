@@ -1,36 +1,13 @@
 zhihe-money-system:
   admin:
-    settings:
-      title: "金钱系统设置"
-      post_view_cost: "查看帖子费用"
-      discussion_view_cost: "查看讨论费用"
-      zero_money_blocking: "金钱为0时阻止访问"
-      enable_view_costs: "启用查看费用"
-      enable_tag_restrictions: "启用标签限制"
-    permissions:
-      manage_money_system: "管理金钱系统设置"
-      bypass_money_requirements: "绕过金钱要求"
-      view_money_transactions: "查看金钱交易"
-    tag_requirements:
-      title: "标签金钱要求"
-      minimum_money: "所需最少金钱"
-      set_requirement: "设置要求"
+    payment_amount_label: "每次查看讨论的扣费金额"
+    payment_amount_help: "用户首次查看讨论时扣除的金钱数量。设置为 0 可禁用自动扣费。"
+    tag_restrictions_label: "标签限制"
+    tag_restrictions_help: "为特定标签设置最低金钱要求"
+    tag_restrictions_coming_soon: "标签限制管理功能即将推出"
   
   forum:
-    messages:
-      insufficient_funds: "金钱不足，无法查看此内容。需要 {required} 金钱，但您只有 {current}。"
-      zero_money_blocked: "您的金钱为零，无法查看内容。请先赚取一些金钱。"
-      tag_access_denied: "此标签需要至少 {required} 金钱才能访问。您目前有 {current}。"
-      view_cost_deducted: "查看此内容扣除了 {cost} 金钱。"
-    
-    buttons:
-      pay_to_view: "支付 {cost} 查看"
-      earn_money: "赚取金钱"
-    
-    user:
-      money_balance: "金钱余额: {balance}"
-      transaction_history: "交易历史"
-    
-    notifications:
-      money_deducted: "查看内容扣除金钱"
-      access_granted: "获得受限内容访问权限"
+    errors:
+      insufficient_funds: "余额不足，无法查看此讨论"
+      negative_balance: "余额为负数时无法查看讨论"
+      tag_restriction: "此讨论需要更高的余额才能查看"

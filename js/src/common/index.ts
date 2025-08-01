@@ -1,0 +1,1 @@
+// Common code shared between admin and forum

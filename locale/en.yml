@@ -1,36 +1,13 @@
 zhihe-money-system:
   admin:
-    settings:
-      title: "Money System Settings"
-      post_view_cost: "Cost to view a post"
-      discussion_view_cost: "Cost to view a discussion"
-      zero_money_blocking: "Block access when money <= 0"
-      enable_view_costs: "Enable view costs"
-      enable_tag_restrictions: "Enable tag-based restrictions"
-    permissions:
-      manage_money_system: "Manage money system settings"
-      bypass_money_requirements: "Bypass money requirements"
-      view_money_transactions: "View money transactions"
-    tag_requirements:
-      title: "Tag Money Requirements"
-      minimum_money: "Minimum money required"
-      set_requirement: "Set Requirement"
+    payment_amount_label: "Payment amount per discussion view"
+    payment_amount_help: "Amount of money deducted when a user views a discussion for the first time. Set to 0 to disable automatic payments."
+    tag_restrictions_label: "Tag restrictions"
+    tag_restrictions_help: "Set minimum money requirements for specific tags"
+    tag_restrictions_coming_soon: "Tag restriction management coming soon"
   
   forum:
-    messages:
-      insufficient_funds: "Insufficient funds to view this content. You need {required} money but only have {current}."
-      zero_money_blocked: "You cannot view content with zero money. Please earn some money first."
-      tag_access_denied: "This tag requires at least {required} money to access. You currently have {current}."
-      view_cost_deducted: "{cost} money deducted for viewing this content."
-    
-    buttons:
-      pay_to_view: "Pay {cost} to view"
-      earn_money: "Earn Money"
-    
-    user:
-      money_balance: "Money Balance: {balance}"
-      transaction_history: "Transaction History"
-    
-    notifications:
-      money_deducted: "Money deducted for viewing content"
-      access_granted: "Access granted to restricted content"
+    errors:
+      insufficient_funds: "Insufficient funds to view this discussion"
+      negative_balance: "You cannot view discussions with negative balance"
+      tag_restriction: "This discussion requires higher money balance to view"

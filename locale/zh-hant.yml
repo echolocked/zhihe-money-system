@@ -1,36 +1,13 @@
 zhihe-money-system:
   admin:
-    settings:
-      title: "金錢系統設定"
-      post_view_cost: "查看貼文費用"
-      discussion_view_cost: "查看討論費用"
-      zero_money_blocking: "金錢為0時阻止存取"
-      enable_view_costs: "啟用查看費用"
-      enable_tag_restrictions: "啟用標籤限制"
-    permissions:
-      manage_money_system: "管理金錢系統設定"
-      bypass_money_requirements: "繞過金錢要求"
-      view_money_transactions: "查看金錢交易"
-    tag_requirements:
-      title: "標籤金錢要求"
-      minimum_money: "所需最少金錢"
-      set_requirement: "設定要求"
+    payment_amount_label: "每次查看討論的扣費金額"
+    payment_amount_help: "用戶首次查看討論時扣除的金錢數量。設置為 0 可禁用自動扣費。"
+    tag_restrictions_label: "標籤限制"
+    tag_restrictions_help: "為特定標籤設置最低金錢要求"
+    tag_restrictions_coming_soon: "標籤限制管理功能即將推出"
   
   forum:
-    messages:
-      insufficient_funds: "金錢不足，無法查看此內容。需要 {required} 金錢，但您只有 {current}。"
-      zero_money_blocked: "您的金錢為零，無法查看內容。請先賺取一些金錢。"
-      tag_access_denied: "此標籤需要至少 {required} 金錢才能存取。您目前有 {current}。"
-      view_cost_deducted: "查看此內容扣除了 {cost} 金錢。"
-    
-    buttons:
-      pay_to_view: "支付 {cost} 查看"
-      earn_money: "賺取金錢"
-    
-    user:
-      money_balance: "金錢餘額: {balance}"
-      transaction_history: "交易歷史"
-    
-    notifications:
-      money_deducted: "查看內容扣除金錢"
-      access_granted: "獲得受限內容存取權限"
+    errors:
+      insufficient_funds: "餘額不足，無法查看此討論"
+      negative_balance: "餘額為負數時無法查看討論"
+      tag_restriction: "此討論需要更高的餘額才能查看"
