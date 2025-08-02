@@ -3,7 +3,6 @@ node_modules/
 vendor/
 
 # Build output  
-js/dist/
 *.map
 
 # IDE files
@@ -32,3 +31,6 @@ pids
 # Cache
 .npm
 .cache
+
+# Debug
+screenshot/

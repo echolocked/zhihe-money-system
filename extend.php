@@ -30,7 +30,8 @@ return [
 
     // Event listeners
     (new Extend\Event())
-        ->listen(Event\DiscussionWasViewed::class, Listener\DeductMoneyOnView::class),
+        ->listen(Event\DiscussionWasViewed::class, Listener\DeductMoneyOnView::class)
+        ->listen(\Flarum\User\Event\Registered::class, [Listeners\GiveInitialMoney::class, 'handle']),
 
     // Controller integration to emit events
     (new Extend\ApiController(ShowDiscussionController::class))

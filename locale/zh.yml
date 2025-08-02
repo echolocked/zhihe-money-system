@@ -3,6 +3,8 @@ zhihe-money-system:
     settings:
       payment_amount_label: "每次查看付费金额"
       payment_amount_help: "用户首次查看讨论时扣除的金钱数量。设置为 0 可禁用自动扣费。"
+      initial_money_label: "新用户初始金钱"
+      initial_money_help: "新用户注册时获得的金钱数量。"
       tag_restrictions_label: "标签限制"
       tag_restrictions_help: "为特定标签设置最低金钱要求"
       tag_restrictions_coming_soon: "标签限制管理功能即将推出"

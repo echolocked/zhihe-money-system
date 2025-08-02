@@ -1,0 +1,2 @@
+(()=>{var e={n:o=>{var r=o&&o.__esModule?()=>o.default:()=>o;return e.d(r,{a:r}),r},d:(o,r)=>{for(var t in r)e.o(r,t)&&!e.o(o,t)&&Object.defineProperty(o,t,{enumerable:!0,get:r[t]})},o:(e,o)=>Object.prototype.hasOwnProperty.call(e,o)};(()=>{"use strict";const o=flarum.core.compat["forum/app"];e.n(o)().initializers.add("zhihe/money-system",function(){console.log("[zhihe/money-system] Hello, forum!")})})(),module.exports={}})();
+//# sourceMappingURL=forum.js.map
