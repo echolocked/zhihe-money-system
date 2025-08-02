@@ -12,6 +12,7 @@ Advanced money system for Flarum with content access control, view costs, and ta
 
 ### 💰 Money Management
 - Built on top of `antoinefr/flarum-ext-money`
+- **Initial Money**: Give new users starting money amount on registration
 - Custom transaction logging
 - Flexible cost configuration
 - Admin controls for rates and restrictions
@@ -40,8 +41,9 @@ php flarum migrate
 
 Access admin panel → Extensions → Zhihe Money System to configure:
 
-- View costs per post/discussion
-- Tag-based money requirements  
+- **Payment Amount**: Money deducted per discussion view
+- **Initial Money**: Starting money amount for new users
+- Tag-based money requirements (coming soon)
 - Zero-money blocking settings
 - Transaction logging options
 
@@ -49,14 +51,16 @@ Access admin panel → Extensions → Zhihe Money System to configure:
 
 ### For Administrators
 - Set view costs for different content types
+- Configure initial money amount for new users
 - Configure tag-based restrictions
 - Monitor user money transactions
 - Manage access policies
 
 ### For Users
+- Receive starting money upon registration
 - View your money balance in profile
-- Purchase access to restricted content
-- Earn money through participation
+- Money is deducted when viewing discussions
+- Earn money through participation (via antoinefr/flarum-ext-money)
 - Track your spending history
 
 ## Development
