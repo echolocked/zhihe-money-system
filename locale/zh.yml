@@ -7,6 +7,8 @@ zhihe-money-system:
       initial_money_help: "新用户注册时获得的金钱数量。"
       minimum_balance_label: "查看讨论所需最低余额"
       minimum_balance_help: "用户必须拥有至少这么多金钱才能查看讨论。设置为 0 表示允许任何余额（包括负数）。"
+      restricted_posts_minimum_money_label: "查看限制帖子所需最低金钱"
+      restricted_posts_minimum_money_help: "用户需要至少这么多金钱才能查看标记为限制的帖子。设置为 0 表示禁用。"
     permissions:
       view_without_payment_label: "无需付费查看讨论"
   
@@ -14,3 +16,5 @@ zhihe-money-system:
     errors:
       insufficient_funds: "余额不足，无法查看此讨论"
       negative_balance: "余额为负数时无法查看讨论"
+    restricted_content:
+      placeholder: "您需要至少 {amount} 金钱才能查看限制内容。请通过评论或创建讨论来赚取更多金钱。"

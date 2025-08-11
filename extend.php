@@ -12,12 +12,14 @@
 namespace Zhihe\MoneySystem;
 
 use Flarum\Api\Controller\ShowDiscussionController;
+use Flarum\Api\Serializer\PostSerializer;
 use Flarum\Discussion\Discussion;
 use Flarum\Extend;
 
 return [
     (new Extend\Frontend('forum'))
-        ->js(__DIR__ . '/js/dist/forum.js'),
+        ->js(__DIR__ . '/js/dist/forum.js')
+        ->css(__DIR__ . '/less/forum.less'),
 
     (new Extend\Frontend('admin'))
         ->js(__DIR__ . '/js/dist/admin.js'),
@@ -27,7 +29,8 @@ return [
     // Settings
     (new Extend\Settings())
         ->serializeToForum('zhihe-money-system.payment_amount', 'zhihe-money-system.payment_amount', 'intval')
-        ->serializeToForum('zhihe-money-system.minimum_balance', 'zhihe-money-system.minimum_balance', 'floatval'),
+        ->serializeToForum('zhihe-money-system.minimum_balance', 'zhihe-money-system.minimum_balance', 'floatval')
+        ->serializeToForum('zhihe-money-system.restricted_posts_minimum_money', 'zhihe-money-system.restricted_posts_minimum_money', 'floatval'),
 
     // Event listeners
     (new Extend\Event())
@@ -37,4 +40,8 @@ return [
     // Controller integration to emit events and check access
     (new Extend\ApiController(ShowDiscussionController::class))
         ->prepareDataForSerialization([Listener\EmitDiscussionViewedEvent::class, 'handle']),
+
+    // Filter restricted post content based on user money
+    (new Extend\ApiSerializer(PostSerializer::class))
+        ->attributes([Api\FilterRestrictedPosts::class, 'filterContent']),
 ];

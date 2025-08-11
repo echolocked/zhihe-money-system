@@ -7,6 +7,8 @@ zhihe-money-system:
       initial_money_help: "Amount of money given to new users when they register."
       minimum_balance_label: "Minimum balance to view discussions"
       minimum_balance_help: "Users must have at least this amount of money to view discussions. Set to 0 to allow any balance (including negative)."
+      restricted_posts_minimum_money_label: "Minimum money to view restricted posts"
+      restricted_posts_minimum_money_help: "Users need at least this amount of money to view posts marked as restricted. Set to 0 to disable."
     permissions:
       view_without_payment_label: "View discussions without payment"
   
@@ -14,3 +16,5 @@ zhihe-money-system:
     errors:
       insufficient_funds: "Insufficient funds to view this discussion"
       negative_balance: "You cannot view discussions with negative balance"
+    restricted_content:
+      placeholder: "You need at least {amount} money to view restricted content. Please comment or create discussions to earn more money."

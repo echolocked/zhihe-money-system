@@ -29,6 +29,14 @@ app.initializers.add('zhihe-money-system', () => {
       step: 0.01,
       default: 0,
     })
+    .registerSetting({
+      setting: 'zhihe-money-system.restricted_posts_minimum_money',
+      label: app.translator.trans('zhihe-money-system.admin.settings.restricted_posts_minimum_money_label'),
+      help: app.translator.trans('zhihe-money-system.admin.settings.restricted_posts_minimum_money_help'),
+      type: 'number',
+      step: 0.01,
+      default: 50,
+    })
     .registerPermission(
       {
         icon: 'fas fa-eye-slash',
