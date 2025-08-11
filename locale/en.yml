@@ -5,9 +5,8 @@ zhihe-money-system:
       payment_amount_help: "Amount of money deducted when a user views a discussion for the first time. Set to 0 to disable automatic payments."
       initial_money_label: "Initial money for new users"
       initial_money_help: "Amount of money given to new users when they register."
-      tag_restrictions_label: "Tag restrictions"
-      tag_restrictions_help: "Set minimum money requirements for specific tags"
-      tag_restrictions_coming_soon: "Tag restriction management coming soon"
+      minimum_balance_label: "Minimum balance to view discussions"
+      minimum_balance_help: "Users must have at least this amount of money to view discussions. Set to 0 to allow any balance (including negative)."
     permissions:
       view_without_payment_label: "View discussions without payment"
   
@@ -15,4 +14,3 @@ zhihe-money-system:
     errors:
       insufficient_funds: "Insufficient funds to view this discussion"
       negative_balance: "You cannot view discussions with negative balance"
-      tag_restriction: "This discussion requires higher money balance to view"

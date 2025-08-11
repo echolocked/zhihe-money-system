@@ -26,18 +26,15 @@ return [
 
     // Settings
     (new Extend\Settings())
-        ->serializeToForum('zhihe-money-system.payment_amount', 'zhihe-money-system.payment_amount', 'intval'),
+        ->serializeToForum('zhihe-money-system.payment_amount', 'zhihe-money-system.payment_amount', 'intval')
+        ->serializeToForum('zhihe-money-system.minimum_balance', 'zhihe-money-system.minimum_balance', 'floatval'),
 
     // Event listeners
     (new Extend\Event())
         ->listen(Event\DiscussionWasViewed::class, Listener\DeductMoneyOnView::class)
         ->listen(\Flarum\User\Event\Registered::class, [Listeners\GiveInitialMoney::class, 'handle']),
 
-    // Controller integration to emit events
+    // Controller integration to emit events and check access
     (new Extend\ApiController(ShowDiscussionController::class))
-        ->prepareDataForSerialization(Listener\EmitDiscussionViewedEvent::class),
-
-    // Policies for access control
-    (new Extend\Policy())
-        ->modelPolicy(Discussion::class, Access\DiscussionPolicy::class),
+        ->prepareDataForSerialization([Listener\EmitDiscussionViewedEvent::class, 'handle']),
 ];

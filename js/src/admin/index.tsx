@@ -21,16 +21,13 @@ app.initializers.add('zhihe-money-system', () => {
       step: 0.01,
       default: 0,
     })
-    .registerSetting(function () {
-      return (
-        <div className="Form-group">
-          <label>{app.translator.trans('zhihe-money-system.admin.settings.tag_restrictions_label')}</label>
-          <div className="helpText">{app.translator.trans('zhihe-money-system.admin.settings.tag_restrictions_help')}</div>
-          <p>
-            <em>{app.translator.trans('zhihe-money-system.admin.settings.tag_restrictions_coming_soon')}</em>
-          </p>
-        </div>
-      );
+    .registerSetting({
+      setting: 'zhihe-money-system.minimum_balance',
+      label: app.translator.trans('zhihe-money-system.admin.settings.minimum_balance_label'),
+      help: app.translator.trans('zhihe-money-system.admin.settings.minimum_balance_help'),
+      type: 'number',
+      step: 0.01,
+      default: 0,
     })
     .registerPermission(
       {

@@ -5,9 +5,8 @@ zhihe-money-system:
       payment_amount_help: "用户首次查看讨论时扣除的金钱数量。设置为 0 可禁用自动扣费。"
       initial_money_label: "新用户初始金钱"
       initial_money_help: "新用户注册时获得的金钱数量。"
-      tag_restrictions_label: "标签限制"
-      tag_restrictions_help: "为特定标签设置最低金钱要求"
-      tag_restrictions_coming_soon: "标签限制管理功能即将推出"
+      minimum_balance_label: "查看讨论所需最低余额"
+      minimum_balance_help: "用户必须拥有至少这么多金钱才能查看讨论。设置为 0 表示允许任何余额（包括负数）。"
     permissions:
       view_without_payment_label: "无需付费查看讨论"
   
@@ -15,4 +14,3 @@ zhihe-money-system:
     errors:
       insufficient_funds: "余额不足，无法查看此讨论"
       negative_balance: "余额为负数时无法查看讨论"
-      tag_restriction: "此讨论需要更高的余额才能查看"
