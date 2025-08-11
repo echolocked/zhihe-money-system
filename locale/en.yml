@@ -17,4 +17,5 @@ zhihe-money-system:
       insufficient_funds: "Insufficient funds to view this discussion"
       negative_balance: "You cannot view discussions with negative balance"
     restricted_content:
-      placeholder: "You need at least {amount} money to view restricted content. Please comment or create discussions to earn more money."
+      placeholder: "You need at least {amount} {moneyName} to view restricted content. Please comment or create discussions to earn more {moneyName}."
+      guest_placeholder: "Please log in to view restricted content."

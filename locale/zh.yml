@@ -17,4 +17,5 @@ zhihe-money-system:
       insufficient_funds: "余额不足，无法查看此讨论"
       negative_balance: "余额为负数时无法查看讨论"
     restricted_content:
-      placeholder: "您需要至少 {amount} 金钱才能查看限制内容。请通过评论或创建讨论来赚取更多金钱。"
+      placeholder: "您需要至少 {amount} {moneyName}才能查看限制内容。请通过评论或发布主题来获取更多{moneyName}。"
+      guest_placeholder: "请先登录以查看限制内容。"

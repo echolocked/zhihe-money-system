@@ -15,13 +15,29 @@ class FilterRestrictedPosts
     {
         $actor = $serializer->getActor();
         
-        // Skip filtering for guests
-        if ($actor->isGuest()) {
+        // Skip if post is not restricted
+        if (!$post->is_restricted) {
             return $attributes;
         }
         
-        // Skip if post is not restricted
-        if (!$post->is_restricted) {
+        // Block all restricted content for guests (hardcoded rule)
+        if ($actor->isGuest()) {
+            $translator = resolve('translator');
+            $placeholderText = $translator->trans(
+                'zhihe-money-system.forum.restricted_content.guest_placeholder'
+            );
+            
+            // Replace content with guest placeholder message
+            $attributes['contentHtml'] = '<div class="Post-restrictedContent">' .
+                '<i class="fas fa-lock"></i> ' .
+                $placeholderText .
+                '</div>';
+            
+            // Also clear the plain content to prevent any leaks
+            if (isset($attributes['content'])) {
+                $attributes['content'] = strip_tags($placeholderText);
+            }
+            
             return $attributes;
         }
         
@@ -47,9 +63,18 @@ class FilterRestrictedPosts
         // If user has insufficient funds, replace content with placeholder
         if ($actor->money < $restrictedMinimum) {
             $translator = resolve('translator');
+            
+            // Get money name from antoinefr-money extension settings
+            $moneyNameSetting = $settings->get('antoinefr-money.moneyname', '[money] 纸鹤');
+            // Extract the actual money name by removing the "[money] " prefix
+            $moneyName = trim(str_replace('[money]', '', $moneyNameSetting));
+            
             $placeholderText = $translator->trans(
                 'zhihe-money-system.forum.restricted_content.placeholder',
-                ['amount' => number_format($restrictedMinimum)]
+                [
+                    'amount' => number_format($restrictedMinimum),
+                    'moneyName' => $moneyName
+                ]
             );
             
             // Replace content with placeholder message

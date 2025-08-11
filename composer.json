@@ -12,7 +12,8 @@
     "license": "MIT",
     "require": {
         "flarum/core": "^1.8.0",
-        "antoinefr/flarum-ext-money": "^1.4.0"
+        "antoinefr/flarum-ext-money": "^1.4.0",
+        "zhihe/restricted-posts": "*"
     },
     "authors": [
         {
