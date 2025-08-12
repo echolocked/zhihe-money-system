@@ -1,4 +1,8 @@
-# Zhihe Money System
+# Advanced Money System for Flarum
+
+[![Latest Stable Version](https://poser.pugx.org/zhihe/money-system/v/stable)](https://packagist.org/packages/zhihe/money-system)
+[![Total Downloads](https://poser.pugx.org/zhihe/money-system/downloads)](https://packagist.org/packages/zhihe/money-system)
+[![License](https://poser.pugx.org/zhihe/money-system/license)](https://packagist.org/packages/zhihe/money-system)
 
 Advanced money system for Flarum with content access control, view costs, and tag-based restrictions.
 
@@ -63,10 +67,31 @@ Access admin panel → Extensions → Zhihe Money System to configure:
 - Earn money through participation (via antoinefr/flarum-ext-money)
 - Track your spending history
 
-## Development
+## 🛠️ Development
 
 This extension is designed to work seamlessly with the existing Flarum ecosystem while providing advanced money-based access control for content platforms.
 
-## License
+### Local Development Setup
+
+```bash
+git clone https://github.com/echolocked/zhihe-money-system.git
+cd zhihe-money-system
+composer install
+```
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## 📄 License
 
 MIT License
+
+## 🆘 Support
+
+- **Issues**: [GitHub Issues](https://github.com/echolocked/zhihe-money-system/issues)
+- **Community**: [Flarum Community Forum](https://discuss.flarum.org)
+
+---
+
+*Love this extension? Consider starring the repository and sharing it with the Flarum community! ⭐*
